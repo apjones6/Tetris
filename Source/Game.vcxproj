@@ -42,13 +42,13 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>../Bin/</OutDir>
     <IntDir>../Obj/$(Configuration)/$(ProjectName)/</IntDir>
-    <IncludePath>D:\Program Files (x86)\boost\boost_1_47;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\boost\boost_1_51;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>../Bin/</OutDir>
     <IntDir>../Obj/$(Configuration)/$(ProjectName)/</IntDir>
-    <IncludePath>D:\Program Files (x86)\boost\boost_1_47;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\boost\boost_1_51;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
