@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{382d8a5d-a4f2-410f-a845-e2e5126a67ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{aea2e6d5-0fed-49c1-a242-53ce0564e7c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects">
+      <UniqueIdentifier>{d451ce72-5344-42c8-89be-21ff469e5497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{d3b41d90-0d67-4ff0-9909-48f5959e8c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{99edd408-fdcf-4a90-882c-623c16f111e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Process">
+      <UniqueIdentifier>{9b3581da-38ed-4053-9a80-639f8cee5861}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Logic\Logic.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\QuadView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\Manager.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\GameEvents.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\LeakChecker.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\TriangleView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\Process.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Process\GameProcesses.cpp">
+      <Filter>Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\HumanView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\Scene.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Views\View.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Logic.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\QuadView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Event.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Listener.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Manager.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Message.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\GameEvents.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\LeakChecker.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\TriangleView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\Process.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Process\GameProcesses.h">
+      <Filter>Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\HumanView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\Scene.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Effects\Simple.fx">
+      <Filter>Effects</Filter>
+    </None>
+  </ItemGroup>
+</Project>
