@@ -1,8 +1,8 @@
 
 # Compilation folders #
 #######################
-bin
-obj
+bin/
+obj/
 
 # Compiled source #
 ###################
