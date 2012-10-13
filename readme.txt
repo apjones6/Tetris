@@ -19,3 +19,9 @@ You can copy the entire Boost folder (containing headers) into here, or use some
  - lambda/lambda.hpp
  - noncopyable.hpp
  - optional.hpp
+
+DirectX
+=======
+This project is, obviously, dependent on the DirectX SDK (Jun 2010). I have configured my visual studio installation to be able to locate the SDK on my system, such that no changes exist within the project.
+
+To do the same see: http://takinginitiative.net/2010/07/02/setting-up-the-directx-sdk-with-visual-studio-2010/
