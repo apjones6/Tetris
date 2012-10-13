@@ -239,7 +239,7 @@ namespace dxut
 				node.reset(new Triangle(actor->Id(), actor->X(), actor->Y(), 0.2f, 0.2f));
 			}
 
-			gApp->Logic()->HumanView()->RootScene()->AddNode(actor->Id(), node);
+			gApp->Logic()->HumanView()->RootScene()->AddNode(node);
 			return true;
 		}
 

@@ -111,11 +111,12 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	void Scene::AddNode(boost::optional<ActorId> id, std::shared_ptr<SceneNode> node)
+	void Scene::AddNode(std::shared_ptr<SceneNode> node)
 	{
-		if (id)
+		if (node->mActorId)
 		{
-			mNodeMap[*id] = node;
+			assert(mNodeMap.find(*node->mActorId) == mNodeMap.end());
+			mNodeMap[*node->mActorId] = node;
 		}
 
 		mRoot->AddNode(node);

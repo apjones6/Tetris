@@ -37,9 +37,10 @@ namespace dxut
 		virtual void PreRender();
 		virtual void PostRender();
 
-	private:
-		boost::optional<ActorId> mActorId;
+	public:
+		const boost::optional<dxut::ActorId> mActorId;
 
+	private:
 		SceneList mChildren;
 	};
 	
@@ -67,7 +68,7 @@ namespace dxut
 		void Render(ID3D10Device* pd3dDevice);
 		void Kill();
 
-		void AddNode(boost::optional<ActorId> id, std::shared_ptr<SceneNode> node);
+		void AddNode(std::shared_ptr<SceneNode> node);
 
 	private:
 		std::shared_ptr<SceneNode> mRoot;

@@ -9,7 +9,7 @@ namespace dxut
 	class Triangle : public SceneNode
 	{
 	public:
-		explicit Triangle(ActorId id, float x, float y, float width, float height);
+		explicit Triangle(dxut::ActorId id, float x, float y, float width, float height);
 
 		void Update(double time, float elapsedTime);
 		void Render();
