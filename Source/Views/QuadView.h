@@ -9,7 +9,7 @@ namespace dxut
 	class Quad : public SceneNode
 	{
 	public:
-		explicit Quad(ActorId id, float x, float y, float width, float height, const D3DXCOLOR& color);
+		explicit Quad(dxut::ActorId id, float x, float y, float width, float height, const D3DXCOLOR& color);
 
 		void Update(double time, float elapsedTime) { }
 		void Render();

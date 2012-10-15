@@ -6,7 +6,7 @@
 namespace dxut
 {
 	
-	Quad::Quad(ActorId id, float x, float y, float width, float height, const D3DXCOLOR& color)
+	Quad::Quad(dxut::ActorId id, float x, float y, float width, float height, const D3DXCOLOR& color)
 		: SceneNode(id),
 		  mX(x),
 		  mY(y),

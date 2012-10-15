@@ -24,8 +24,10 @@ namespace dxut
 	class SceneNode
 	{
 	public:
-		explicit SceneNode(const boost::optional<ActorId> actorId);
+		explicit SceneNode(const boost::optional<dxut::ActorId> actorId);
 		virtual ~SceneNode() { }
+
+		boost::optional<dxut::ActorId> ActorId() const { return mActorId; }
 
 		virtual void Update(double time, float elapsedTime) = 0;
 		virtual void Kill() = 0;
@@ -37,10 +39,9 @@ namespace dxut
 		virtual void PreRender();
 		virtual void PostRender();
 
-	public:
+	private:
 		const boost::optional<dxut::ActorId> mActorId;
 
-	private:
 		SceneList mChildren;
 	};
 	

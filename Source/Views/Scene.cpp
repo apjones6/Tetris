@@ -6,7 +6,7 @@
 namespace dxut
 {
 
-	SceneNode::SceneNode(const boost::optional<ActorId> actorId)
+	SceneNode::SceneNode(const boost::optional<dxut::ActorId> actorId)
 		: mActorId(actorId)
 	{
 	}
@@ -67,7 +67,7 @@ namespace dxut
 //--------------------------------------------------------------------------------------
 
 	SceneRoot::SceneRoot()
-		: SceneNode(boost::optional<ActorId>())
+		: SceneNode(boost::optional<dxut::ActorId>())
 	{
 	}
 	
@@ -113,10 +113,10 @@ namespace dxut
 
 	void Scene::AddNode(std::shared_ptr<SceneNode> node)
 	{
-		if (node->mActorId)
+		if (node->ActorId())
 		{
-			assert(mNodeMap.find(*node->mActorId) == mNodeMap.end());
-			mNodeMap[*node->mActorId] = node;
+			assert(mNodeMap.find(*node->ActorId()) == mNodeMap.end());
+			mNodeMap[*node->ActorId()] = node;
 		}
 
 		mRoot->AddNode(node);

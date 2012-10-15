@@ -6,7 +6,7 @@
 namespace dxut
 {
 	
-	Triangle::Triangle(ActorId id, float x, float y, float width, float height)
+	Triangle::Triangle(dxut::ActorId id, float x, float y, float width, float height)
 		: SceneNode(id),
 		  mX(x),
 		  mY(y),
