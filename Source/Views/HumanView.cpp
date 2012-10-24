@@ -27,7 +27,7 @@ namespace dxut
 
 		// Create effect
 		ID3D10Blob* errors = 0;
-		HRESULT hr = D3DX10CreateEffectFromFile(L"Effects/Simple.fx", 0, 0, "fx_4_0", shaderFlags, 0, pd3dDevice, 0, 0, pEffect, &errors, 0);
+		HRESULT hr = D3DX10CreateEffectFromFile(L"../Effects/Simple.fx", 0, 0, "fx_4_0", shaderFlags, 0, pd3dDevice, 0, 0, pEffect, &errors, 0);
 		if (FAILED(hr))
 		{
 			if (errors)

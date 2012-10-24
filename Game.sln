@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Source\Game.vcxproj", "{7FBB92A5-3BF2-4F17-84F6-2EA6BB7F2B75}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Source\Engine.vcxproj", "{7FBB92A5-3BF2-4F17-84F6-2EA6BB7F2B75}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DXUT", "Source\DXUT\DXUT.vcxproj", "{6F599292-5FB9-4B94-97C0-253E56D6B42D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tetris", "Source\Tetris\Tetris.vcxproj", "{A14E71A9-1F9C-49B5-A022-7686FD1A7D5F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6F599292-5FB9-4B94-97C0-253E56D6B42D} = {6F599292-5FB9-4B94-97C0-253E56D6B42D}
+		{7FBB92A5-3BF2-4F17-84F6-2EA6BB7F2B75} = {7FBB92A5-3BF2-4F17-84F6-2EA6BB7F2B75}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +25,10 @@ Global
 		{6F599292-5FB9-4B94-97C0-253E56D6B42D}.Debug|Win32.Build.0 = Debug|Win32
 		{6F599292-5FB9-4B94-97C0-253E56D6B42D}.Release|Win32.ActiveCfg = Release|Win32
 		{6F599292-5FB9-4B94-97C0-253E56D6B42D}.Release|Win32.Build.0 = Release|Win32
+		{A14E71A9-1F9C-49B5-A022-7686FD1A7D5F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A14E71A9-1F9C-49B5-A022-7686FD1A7D5F}.Debug|Win32.Build.0 = Debug|Win32
+		{A14E71A9-1F9C-49B5-A022-7686FD1A7D5F}.Release|Win32.ActiveCfg = Release|Win32
+		{A14E71A9-1F9C-49B5-A022-7686FD1A7D5F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
