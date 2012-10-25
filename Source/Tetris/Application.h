@@ -6,7 +6,7 @@
 namespace tetris
 {
 	
-	class Application : public dxut::Application
+	class Application : public dxut::ApplicationBase
 	{
 	public:
 		explicit Application();

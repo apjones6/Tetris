@@ -6,7 +6,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	using namespace dxut;
 	
 	// Initialize application instance
-	gApp = std::shared_ptr<Application>(new tetris::Application);
+	gApp = std::shared_ptr<ApplicationBase>(new tetris::Application);
 
 	// Run
 	gApp->Initialize(L"DXUT Test Application");

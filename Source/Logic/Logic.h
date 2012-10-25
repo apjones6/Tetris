@@ -2,7 +2,6 @@
 #pragma once
 
 #include "../Views/View.h"
-#include "Listener.h"
 
 #include <map>
 
@@ -48,13 +47,16 @@ namespace dxut
 
 //--------------------------------------------------------------------------------------
 
-	class BaseLogic
+	class LogicBase
 	{
-	public:
-		explicit BaseLogic();
+	protected:
+		explicit LogicBase();
 
-		void Initialize();
-		void Update(double time, float elapsedTime);
+	public:
+		virtual ~LogicBase() { }
+
+		virtual void Initialize();
+		virtual void Update(double time, float elapsedTime);
 
 		std::shared_ptr<ProcessManager> Processes() { return mProcessManager; }
 
@@ -87,18 +89,10 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 	
-	static void TogglePause(std::shared_ptr<BaseLogic> logic)
+	static void TogglePause(std::shared_ptr<LogicBase> logic)
 	{
 		const bool paused = logic->IsPaused();
 		logic->SetPaused(!paused);
 	}
-
-//--------------------------------------------------------------------------------------
-
-	class LogicListener : public IListener
-	{
-	public:
-		bool Handle(EventPtr e);
-	};
 
 };

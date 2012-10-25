@@ -10,12 +10,12 @@
 namespace dxut
 {
 	
-	std::shared_ptr<Application> gApp = NULL;
+	std::shared_ptr<ApplicationBase> gApp = NULL;
 
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 	
-	HRESULT CALLBACK Application::OnCreateDevice(ID3D10Device* pd3dDevice, const DXGI_SURFACE_DESC* pBufferSurfaceDesc, void* pUserContext)
+	HRESULT CALLBACK ApplicationBase::OnCreateDevice(ID3D10Device* pd3dDevice, const DXGI_SURFACE_DESC* pBufferSurfaceDesc, void* pUserContext)
 	{
 		BOOST_FOREACH (std::shared_ptr<IView> view, gApp->Logic()->Views())
 		{
@@ -27,7 +27,7 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	void CALLBACK Application::OnDestroyDevice(void* pUserContext)
+	void CALLBACK ApplicationBase::OnDestroyDevice(void* pUserContext)
 	{
 		BOOST_FOREACH (std::shared_ptr<IView> view, gApp->Logic()->Views())
 		{
@@ -37,14 +37,14 @@ namespace dxut
 
 //--------------------------------------------------------------------------------------
 
-	void CALLBACK Application::OnRender(ID3D10Device* pd3dDevice, double time, float elapsedTime, void *pUserContext)
+	void CALLBACK ApplicationBase::OnRender(ID3D10Device* pd3dDevice, double time, float elapsedTime, void *pUserContext)
 	{
 		gApp->Logic()->HumanView()->Render(pd3dDevice);
 	}
 	
 //--------------------------------------------------------------------------------------
 
-	void CALLBACK Application::OnUpdate(double time, float elapsedTime, void* pUserContext)
+	void CALLBACK ApplicationBase::OnUpdate(double time, float elapsedTime, void* pUserContext)
 	{
 		// Escape if paused
 		if (gApp->mLogic->IsPaused())
@@ -55,7 +55,7 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	LRESULT CALLBACK Application::OnMsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext)
+	LRESULT CALLBACK ApplicationBase::OnMsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext)
 	{
 		LRESULT result = NULL;
 
@@ -92,23 +92,23 @@ namespace dxut
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 	
-	Application::Application(std::shared_ptr<EventManager> eventManager, std::shared_ptr<BaseLogic> logic)
+	ApplicationBase::ApplicationBase(std::shared_ptr<LogicBase> logic, std::shared_ptr<EventManager> eventManager)
 		: mEventManager(eventManager),
 		  mLogic(logic)
 	{
 	}
 
 //--------------------------------------------------------------------------------------
-
-	Application::Application()
+	
+	ApplicationBase::ApplicationBase(std::shared_ptr<LogicBase> logic)
 		: mEventManager(new EventManager),
-		  mLogic(new BaseLogic)
+		  mLogic(logic)
 	{
 	}
 
 //--------------------------------------------------------------------------------------
 
-	void Application::Initialize(const std::wstring& title, bool windowed, int width, int height)
+	void ApplicationBase::Initialize(const std::wstring& title, bool windowed, int width, int height)
 	{
 		HRESULT hr;
 
@@ -123,11 +123,11 @@ namespace dxut
 		mLogic->AddView(view);
 
 		// Register DXUT Callbacks
-		DXUTSetCallbackD3D10DeviceCreated(Application::OnCreateDevice);
-		DXUTSetCallbackD3D10DeviceDestroyed(Application::OnDestroyDevice);
-		DXUTSetCallbackD3D10FrameRender(Application::OnRender);
-		DXUTSetCallbackFrameMove(Application::OnUpdate);
-		DXUTSetCallbackMsgProc(Application::OnMsgProc);
+		DXUTSetCallbackD3D10DeviceCreated(ApplicationBase::OnCreateDevice);
+		DXUTSetCallbackD3D10DeviceDestroyed(ApplicationBase::OnDestroyDevice);
+		DXUTSetCallbackD3D10FrameRender(ApplicationBase::OnRender);
+		DXUTSetCallbackFrameMove(ApplicationBase::OnUpdate);
+		DXUTSetCallbackMsgProc(ApplicationBase::OnMsgProc);
 
 		// Initialize Window and DirectX
 		V(DXUTCreateWindow(title.c_str()));
@@ -136,7 +136,7 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	int Application::Run()
+	int ApplicationBase::Run()
 	{
 		HRESULT hr;
 

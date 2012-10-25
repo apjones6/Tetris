@@ -13,11 +13,11 @@ namespace dxut
 {
 	
 	class EventManager;
-	class BaseLogic;
+	class LogicBase;
 
 //--------------------------------------------------------------------------------------
 
-	class Application : private boost::noncopyable
+	class ApplicationBase : private boost::noncopyable
 	{
 	public:
 		static HRESULT CALLBACK OnCreateDevice(ID3D10Device* pd3dDevice, const DXGI_SURFACE_DESC* pBufferSurfaceDesc, void* pUserContext);
@@ -26,10 +26,12 @@ namespace dxut
 		static void    CALLBACK OnUpdate(double time, float elapsedTime, void* pUserContext);
 		static LRESULT CALLBACK OnMsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext);
 
+	protected:
+		explicit ApplicationBase(std::shared_ptr<LogicBase> logic, std::shared_ptr<EventManager> eventManager);
+		explicit ApplicationBase(std::shared_ptr<LogicBase> logic);
+
 	public:
-		explicit Application(std::shared_ptr<EventManager> eventManager, std::shared_ptr<BaseLogic> logic);
-		explicit Application();
-		virtual ~Application() { }
+		virtual ~ApplicationBase() { }
 
 		void Initialize(const std::wstring& title, bool windowed = true, int width = 800, int height = 600);
 		int  Run();
@@ -38,14 +40,14 @@ namespace dxut
 		LONG Width() const { return DXUTGetWindowWidth(); }
 
 		std::shared_ptr<EventManager> Events() { return mEventManager; }
-		std::shared_ptr<BaseLogic> Logic() { return mLogic; }
+		std::shared_ptr<LogicBase> Logic() { return mLogic; }
 
 	protected:
 		virtual void RegisterEvents() { }
 
 	private:
 		std::shared_ptr<EventManager> mEventManager;
-		std::shared_ptr<BaseLogic> mLogic;
+		std::shared_ptr<LogicBase> mLogic;
 
 #if defined(DEBUG) | defined(_DEBUG)
 		static LeakChecker leakChecker;
@@ -54,6 +56,6 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	extern std::shared_ptr<Application> gApp;
+	extern std::shared_ptr<ApplicationBase> gApp;
 
 };
