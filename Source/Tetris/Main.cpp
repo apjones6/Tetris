@@ -1,12 +1,12 @@
 
-#include "../Application.h"
+#include "Application.h"
 
 int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	using namespace dxut;
 	
 	// Initialize application instance
-	gApp = std::shared_ptr<Application>(new Application);
+	gApp = std::shared_ptr<Application>(new tetris::Application);
 
 	// Run
 	gApp->Initialize(L"DXUT Test Application");

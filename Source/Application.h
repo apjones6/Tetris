@@ -27,6 +27,7 @@ namespace dxut
 		static LRESULT CALLBACK OnMsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext);
 
 	public:
+		explicit Application(std::shared_ptr<EventManager> eventManager, std::shared_ptr<BaseLogic> logic);
 		explicit Application();
 		virtual ~Application() { }
 
@@ -40,7 +41,7 @@ namespace dxut
 		std::shared_ptr<BaseLogic> Logic() { return mLogic; }
 
 	protected:
-		virtual void RegisterEvents();
+		virtual void RegisterEvents() { }
 
 	private:
 		std::shared_ptr<EventManager> mEventManager;

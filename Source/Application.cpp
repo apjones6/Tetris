@@ -1,7 +1,6 @@
 
 #include "Application.h"
 #include "Core/Message.h"
-#include "Logic/GameEvents.h"
 #include "Logic/Logic.h"
 #include "Logic/Manager.h"
 #include "Views/HumanView.h"
@@ -93,6 +92,14 @@ namespace dxut
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 	
+	Application::Application(std::shared_ptr<EventManager> eventManager, std::shared_ptr<BaseLogic> logic)
+		: mEventManager(eventManager),
+		  mLogic(logic)
+	{
+	}
+
+//--------------------------------------------------------------------------------------
+
 	Application::Application()
 		: mEventManager(new EventManager),
 		  mLogic(new BaseLogic)
@@ -142,12 +149,4 @@ namespace dxut
 		return DXUTGetExitCode();
 	}
 	
-//--------------------------------------------------------------------------------------
-
-	void Application::RegisterEvents()
-	{
-		mEventManager->Register(EVENT_ACTOR_CREATED);
-		mEventManager->Register(EVENT_SPAWN_ACTOR);
-	}
-
 };
