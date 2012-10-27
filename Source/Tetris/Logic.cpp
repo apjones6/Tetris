@@ -2,8 +2,8 @@
 #include "../Application.h"
 #include "../Logic/GameEvents.h"
 #include "../Logic/Manager.h"
-#include "../Process/GameProcesses.h"
 #include "Logic.h"
+#include "Processes.h"
 
 #include <algorithm>
 

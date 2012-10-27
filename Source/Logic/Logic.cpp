@@ -1,6 +1,6 @@
 
 #include "../Application.h"
-#include "../Process/GameProcesses.h"
+#include "../Process/Process.h"
 #include "GameEvents.h"
 #include "Logic.h"
 #include "Manager.h"

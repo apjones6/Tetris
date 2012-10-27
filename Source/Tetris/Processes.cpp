@@ -1,9 +1,8 @@
 
 #include "../Application.h"
-#include "../Logic/Logic.h"
-#include "GameProcesses.h"
+#include "Processes.h"
 
-namespace dxut
+namespace tetris
 {
 	
 	DelayProcess::DelayProcess(double time)
@@ -35,7 +34,7 @@ namespace dxut
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 	
-	SpawnProcess::SpawnProcess(float x, float y, const ActorId id)
+	SpawnProcess::SpawnProcess(float x, float y, const dxut::ActorId id)
 		: mX(x),
 		  mY(y),
 		  mId(id)
@@ -46,6 +45,8 @@ namespace dxut
 
 	void SpawnProcess::Update(float elapsedTime)
 	{
+		using namespace dxut;
+
 		Process::Update(elapsedTime);
 
 		// Spawn immediately

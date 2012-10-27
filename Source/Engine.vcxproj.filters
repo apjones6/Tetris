@@ -45,9 +45,6 @@
     <ClCompile Include="Process\Process.cpp">
       <Filter>Process</Filter>
     </ClCompile>
-    <ClCompile Include="Process\GameProcesses.cpp">
-      <Filter>Process</Filter>
-    </ClCompile>
     <ClCompile Include="Views\HumanView.cpp">
       <Filter>Views</Filter>
     </ClCompile>
@@ -91,9 +88,6 @@
       <Filter>Views</Filter>
     </ClInclude>
     <ClInclude Include="Process\Process.h">
-      <Filter>Process</Filter>
-    </ClInclude>
-    <ClInclude Include="Process\GameProcesses.h">
       <Filter>Process</Filter>
     </ClInclude>
     <ClInclude Include="Views\HumanView.h">

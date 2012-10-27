@@ -87,7 +87,6 @@
     <ClCompile Include="Logic\GameEvents.cpp" />
     <ClCompile Include="Logic\Manager.cpp" />
     <ClCompile Include="Logic\Logic.cpp" />
-    <ClCompile Include="Process\GameProcesses.cpp" />
     <ClCompile Include="Process\Process.cpp" />
     <ClCompile Include="Views\HumanView.cpp" />
     <ClCompile Include="Views\QuadView.cpp" />
@@ -104,7 +103,6 @@
     <ClInclude Include="Logic\Listener.h" />
     <ClInclude Include="Logic\Logic.h" />
     <ClInclude Include="Logic\Manager.h" />
-    <ClInclude Include="Process\GameProcesses.h" />
     <ClInclude Include="Process\Process.h" />
     <ClInclude Include="Views\HumanView.h" />
     <ClInclude Include="Views\QuadView.h" />

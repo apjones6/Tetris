@@ -2,12 +2,12 @@
 #pragma once
 
 #include "../Logic/Logic.h"
-#include "Process.h"
+#include "../Process/Process.h"
 
-namespace dxut
+namespace tetris
 {
 	
-	class DelayProcess : public Process
+	class DelayProcess : public dxut::Process
 	{
 	public:
 		explicit DelayProcess(double time);
@@ -21,16 +21,16 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	class SpawnProcess : public Process
+	class SpawnProcess : public dxut::Process
 	{
 	public:
-		explicit SpawnProcess(float x, float y, const ActorId id);
+		explicit SpawnProcess(float x, float y, const dxut::ActorId id);
 
 		void Update(float elapsedTime);
 
 	private:
 		const float mX, mY;
-		const ActorId mId;
+		const dxut::ActorId mId;
 	};
 
 };
