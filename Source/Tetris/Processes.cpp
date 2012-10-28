@@ -1,5 +1,6 @@
 
 #include "../Application.h"
+#include "Logic.h"
 #include "Processes.h"
 
 namespace tetris

@@ -75,7 +75,6 @@ namespace dxut
 	HumanView::HumanView()
 		: mKeyboardHandler(new KeyboardHandler),
 	      mMouseHandler(new MouseHandler),
-		  mListener(new ViewListener),
 		  mLayout(0),
 		  mTech(0),
 		  mFX(0)
@@ -88,9 +87,6 @@ namespace dxut
 	{
 		HRESULT hr;
 		ID3D10Device* pd3dDevice = DXUTGetD3D10Device();
-
-		// Register listeners
-		gApp->Events()->AddListener(mListener, EVENT_ACTOR_CREATED);
 
 		// Build effects and layouts
 		V(BuildFX(pd3dDevice, &mFX, &mTech));
@@ -158,9 +154,6 @@ namespace dxut
 
 		mElementList.clear();
 
-		// Deregister listeners
-		gApp->Events()->RemoveListener(mListener, EVENT_ACTOR_CREATED);
-
 		SAFE_RELEASE(mLayout);
 		SAFE_RELEASE(mFX);
 	}
@@ -217,33 +210,6 @@ namespace dxut
 	void HumanView::AddView(std::shared_ptr<IViewElement> view)
 	{
 		mElementList.push_back(view);
-	}
-
-//--------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------
-	
-	bool ViewListener::Handle(EventPtr e)
-	{
-		if (e->Type() == EVENT_ACTOR_CREATED)
-		{
-			const ActorEvent& actorEvt = static_cast<ActorEvent&>(*e);
-			const std::shared_ptr<Actor> actor(gApp->Logic()->GetActor(actorEvt.Actor()));
-			
-			std::shared_ptr<SceneNode> node;
-			if (actor->Type() == ACTOR_TYPE_SQUARE)
-			{
-				node.reset(new Quad(actor->Id(), actor->X(), actor->Y(), 1.0f, 1.0f, actor->Id() % 2 == 0 ? RED : BLUE));
-			}
-			else
-			{
-				node.reset(new Triangle(actor->Id(), actor->X(), actor->Y(), 0.2f, 0.2f));
-			}
-
-			gApp->Logic()->HumanView()->RootScene()->AddNode(node);
-			return true;
-		}
-
-		return false;
 	}
 
 };

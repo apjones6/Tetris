@@ -35,18 +35,8 @@ namespace dxut
 		std::shared_ptr<Scene> mScene;
 		ViewElementList		   mElementList;
 
-		ListenerPtr		mListener;
-
 		std::shared_ptr<IKeyboardHandler> mKeyboardHandler;
 		std::shared_ptr<IMouseHandler>	  mMouseHandler;
 	};
 	
-//--------------------------------------------------------------------------------------
-
-	class ViewListener : public IListener
-	{
-	public:
-		bool Handle(EventPtr e);
-	};
-
 };

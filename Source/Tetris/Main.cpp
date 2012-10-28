@@ -13,6 +13,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	int exit = gApp->Run();
 
 	// Kill
+	gApp->Kill();
 	gApp.reset();
 
 	// Exit

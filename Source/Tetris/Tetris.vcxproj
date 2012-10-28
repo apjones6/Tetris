@@ -73,6 +73,7 @@
     <ClCompile Include="Logic.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Processes.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DXUT\DXUT.vcxproj">
@@ -86,6 +87,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Logic.h" />
     <ClInclude Include="Processes.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
