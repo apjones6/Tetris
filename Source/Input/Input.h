@@ -7,6 +7,8 @@ namespace dxut
 	class IMouseHandler
 	{
 	public:
+		virtual ~IMouseHandler() { }
+
 		virtual void Update(double time, float elapsedTime) = 0;
 
 		virtual void OnLeftDown(WORD x, WORD y) = 0;
@@ -14,8 +16,6 @@ namespace dxut
 		virtual void OnRightDown(WORD x, WORD y) = 0;
 		virtual void OnRightUp(WORD x, WORD y) = 0;
 		virtual void OnMove(WORD x, WORD y) = 0;
-
-		virtual ~IMouseHandler() { }
 	};
 	
 //--------------------------------------------------------------------------------------
@@ -23,6 +23,8 @@ namespace dxut
 	class IKeyboardHandler
 	{
 	public:
+		virtual ~IKeyboardHandler() { }
+
 		virtual void Update(double time, float elapsedTime) = 0;
 
 		virtual void OnKeyDown(BYTE key) = 0;
@@ -34,6 +36,8 @@ namespace dxut
 	class MouseHandler : public IMouseHandler
 	{
 	public:
+		explicit MouseHandler() { }
+
 		void Update(double time, float elapsedTime);
 
 		void OnLeftDown(WORD x, WORD y);
@@ -55,7 +59,7 @@ namespace dxut
 		void OnKeyDown(BYTE key);
 		void OnKeyUp(BYTE key);
 
-	private:
+	protected:
 		bool mKeys[256];
 	};
 

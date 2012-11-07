@@ -33,7 +33,7 @@ namespace dxut
 	public:
 		virtual ~ApplicationBase() { }
 
-		virtual void Initialize(const std::wstring& title, bool windowed = true, int width = 800, int height = 600);
+		void Initialize(const std::wstring& title, bool windowed = true, int width = 800, int height = 600);
 		virtual void Kill() { }
 		int  Run();
 
@@ -44,7 +44,7 @@ namespace dxut
 		std::shared_ptr<LogicBase> Logic() { return mLogic; }
 
 	protected:
-		virtual void RegisterEvents() { }
+		virtual void InitializeViews();
 
 	private:
 		std::shared_ptr<EventManager> mEventManager;

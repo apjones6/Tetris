@@ -112,15 +112,11 @@ namespace dxut
 	{
 		HRESULT hr;
 
-		// Initialize event manager
-		RegisterEvents();
-
 		// Initialize logic
 		mLogic->Initialize();
 
 		// Initialize views
-		std::shared_ptr<IView> view(new HumanView);
-		mLogic->AddView(view);
+		InitializeViews();
 
 		// Register DXUT Callbacks
 		DXUTSetCallbackD3D10DeviceCreated(ApplicationBase::OnCreateDevice);
@@ -147,6 +143,14 @@ namespace dxut
 
 		// Return exit code
 		return DXUTGetExitCode();
+	}
+	
+//--------------------------------------------------------------------------------------
+
+	void ApplicationBase::InitializeViews()
+	{
+		std::shared_ptr<IView> view(new HumanView);
+		mLogic->AddView(view);
 	}
 	
 };

@@ -12,11 +12,10 @@ namespace tetris
 	public:
 		explicit Application();
 
-		void Initialize(const std::wstring& title, bool windowed = true, int width = 800, int height = 600);
 		void Kill();
 
 	protected:
-		void RegisterEvents();
+		void InitializeViews();
 
 	private:
 		dxut::ListenerPtr mListener;

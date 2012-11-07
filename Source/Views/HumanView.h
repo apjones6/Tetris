@@ -12,6 +12,7 @@ namespace dxut
 	class HumanView : public IHumanView
 	{
 	public:
+		explicit HumanView(std::shared_ptr<IKeyboardHandler> keyboardHandler, std::shared_ptr<IMouseHandler> mouseHandler);
 		explicit HumanView();
 
 		ViewType Type() const { return VIEW_HUMAN; }

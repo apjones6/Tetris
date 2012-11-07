@@ -1,7 +1,9 @@
 
 #include "../Logic/GameEvents.h"
 #include "../Logic/Manager.h"
+#include "../Views/HumanView.h"
 #include "Application.h"
+#include "Input.h"
 #include "Logic.h"
 #include "View.h"
 
@@ -16,26 +18,30 @@ namespace tetris
 	
 //--------------------------------------------------------------------------------------
 
-	void Application::Initialize(const std::wstring& title, bool windowed, int width, int height)
-	{
-		ApplicationBase::Initialize(title, windowed, width, height);
-		Events()->AddListener(mListener, dxut::EVENT_ACTOR_CREATED);
-	}
-	
-//--------------------------------------------------------------------------------------
-
 	void Application::Kill()
 	{
+		// Detach listeners
 		Events()->RemoveListener(mListener, dxut::EVENT_ACTOR_CREATED);
+
 		ApplicationBase::Kill();
 	}
 
 //--------------------------------------------------------------------------------------
 
-	void Application::RegisterEvents()
+	void Application::InitializeViews()
 	{
-		Events()->Register(dxut::EVENT_ACTOR_CREATED);
-		Events()->Register(dxut::EVENT_SPAWN_ACTOR);
-	}
+		using namespace dxut;
 
+		// Initialize input handlers
+		std::shared_ptr<IKeyboardHandler> keyboard(new KeyboardHandler);
+		std::shared_ptr<IMouseHandler> mouse(new MouseHandler);
+
+		// Initialize views
+		std::shared_ptr<IView> view(new HumanView(keyboard, mouse));
+		Logic()->AddView(view);
+
+		// Attach view listeners
+		Events()->AddListener(mListener, dxut::EVENT_ACTOR_CREATED);
+	}
+	
 };

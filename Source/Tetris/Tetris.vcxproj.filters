@@ -6,11 +6,13 @@
     <ClCompile Include="Logic.cpp" />
     <ClCompile Include="Processes.cpp" />
     <ClCompile Include="View.cpp" />
+    <ClCompile Include="Input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Logic.h" />
     <ClInclude Include="Processes.h" />
     <ClInclude Include="View.h" />
+    <ClInclude Include="Input.h" />
   </ItemGroup>
 </Project>

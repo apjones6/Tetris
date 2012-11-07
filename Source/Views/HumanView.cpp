@@ -71,6 +71,17 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
+	
+	HumanView::HumanView(std::shared_ptr<IKeyboardHandler> keyboardHandler, std::shared_ptr<IMouseHandler> mouseHandler)
+		: mKeyboardHandler(keyboardHandler),
+	      mMouseHandler(mouseHandler),
+		  mLayout(0),
+		  mTech(0),
+		  mFX(0)
+	{
+	}
+	
+//--------------------------------------------------------------------------------------
 
 	HumanView::HumanView()
 		: mKeyboardHandler(new KeyboardHandler),
