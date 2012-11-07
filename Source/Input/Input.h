@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include "../DXUT/DXUT.h"
+
 namespace dxut
 {
 

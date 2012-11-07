@@ -1,21 +1,14 @@
 
 #include "../Application.h"
-#include "../Logic/GameEvents.h"
 #include "../Logic/Manager.h"
 #include "Logic.h"
 #include "Processes.h"
-
-#include <algorithm>
-
-#include <boost/foreach.hpp>
-#include <boost/lambda/lambda.hpp>
-#include <boost/lambda/bind.hpp>
 
 namespace tetris
 {
 	
 	Logic::Logic()
-		: dxut::LogicBase()
+		: LogicBase()
 	{
 	}
 
@@ -60,9 +53,22 @@ namespace tetris
 
 	void Logic::Update(double time, float elapsedTime)
 	{
-		dxut::LogicBase::Update(time, elapsedTime);
+		LogicBase::Update(time, elapsedTime);
 	}
+	
+//--------------------------------------------------------------------------------------
 
+	void Logic::AddActor(std::shared_ptr<dxut::Actor> actor)
+	{
+		using namespace dxut;
+
+		LogicBase::AddActor(actor);
+
+		// Notify
+		EventPtr e(new ActorEvent(actor->Id()));
+		gApp->Events()->Dispatch(e);
+	}
+	
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
 
@@ -89,6 +95,23 @@ namespace tetris
 
 		// Ignore other events
 		return false;
+	}
+	
+//--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
+	
+	ActorEvent::ActorEvent(const dxut::ActorId id)
+		: mId(id)
+	{
+	}
+	
+//--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
+
+	SpawnEvent::SpawnEvent(float x, float y)
+		: mX(x),
+		  mY(y)
+	{
 	}
 
 };

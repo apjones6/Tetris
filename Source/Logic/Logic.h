@@ -58,7 +58,7 @@ namespace dxut
 		ActorId NextActorId() { return ++mNextActorId; }
 
 		std::shared_ptr<Actor> GetActor(const ActorId id) const;
-		void AddActor(std::shared_ptr<Actor> actor);
+		virtual void AddActor(std::shared_ptr<Actor> actor);
 
 		void AddView(std::shared_ptr<IView> view);
 		const ViewList& Views() const { return mViewList; }

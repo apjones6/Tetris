@@ -30,9 +30,6 @@
     <ClCompile Include="Logic\Manager.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
-    <ClCompile Include="Logic\GameEvents.cpp">
-      <Filter>Logic</Filter>
-    </ClCompile>
     <ClCompile Include="Core\LeakChecker.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -74,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="Core\Message.h">
       <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Logic\GameEvents.h">
-      <Filter>Logic</Filter>
     </ClInclude>
     <ClInclude Include="Core\LeakChecker.h">
       <Filter>Core</Filter>

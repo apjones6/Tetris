@@ -2,7 +2,6 @@
 #include "../Application.h"
 #include "../Core/Message.h"
 #include "../DXUT/DXUT.h"
-#include "../Logic/GameEvents.h"
 #include "../Logic/Logic.h"
 #include "../Logic/Manager.h"
 #include "HumanView.h"

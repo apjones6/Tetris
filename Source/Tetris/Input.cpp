@@ -1,9 +1,8 @@
 
 #include "../Application.h"
-#include "../Logic/GameEvents.h"
-#include "../Logic/Logic.h"
 #include "../Logic/Manager.h"
 #include "Input.h"
+#include "Logic.h"
 
 namespace tetris
 {

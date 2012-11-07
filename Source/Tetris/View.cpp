@@ -1,6 +1,5 @@
 
 #include "../Application.h"
-#include "../Logic/GameEvents.h"
 #include "../Views/QuadView.h"
 #include "../Views/TriangleView.h"
 #include "Logic.h"

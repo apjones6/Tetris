@@ -1,5 +1,4 @@
 
-#include "../Logic/GameEvents.h"
 #include "../Logic/Manager.h"
 #include "../Views/HumanView.h"
 #include "Application.h"
@@ -11,7 +10,7 @@ namespace tetris
 {
 	
 	Application::Application()
-		: dxut::ApplicationBase(std::shared_ptr<dxut::LogicBase>(new tetris::Logic)),
+		: ApplicationBase(std::shared_ptr<dxut::LogicBase>(new tetris::Logic)),
 		  mListener(new ViewListener)
 	{
 	}
@@ -21,7 +20,7 @@ namespace tetris
 	void Application::Kill()
 	{
 		// Detach listeners
-		Events()->RemoveListener(mListener, dxut::EVENT_ACTOR_CREATED);
+		Events()->RemoveListener(mListener, EVENT_ACTOR_CREATED);
 
 		ApplicationBase::Kill();
 	}
@@ -41,7 +40,7 @@ namespace tetris
 		Logic()->AddView(view);
 
 		// Attach view listeners
-		Events()->AddListener(mListener, dxut::EVENT_ACTOR_CREATED);
+		Events()->AddListener(mListener, EVENT_ACTOR_CREATED);
 	}
 	
 };

@@ -1,7 +1,6 @@
 
 #include "../Application.h"
 #include "../Process/Process.h"
-#include "GameEvents.h"
 #include "Logic.h"
 #include "Manager.h"
 
@@ -94,10 +93,6 @@ namespace dxut
 
 		// Insert
 		mActorMap[actor->Id()] = actor;
-
-		// Notify
-		EventPtr e(new ActorEvent(actor->Id()));
-		gApp->Events()->Dispatch(e);
 	}
 	
 //--------------------------------------------------------------------------------------

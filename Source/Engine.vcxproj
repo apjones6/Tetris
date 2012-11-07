@@ -84,7 +84,6 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Core\LeakChecker.cpp" />
     <ClCompile Include="Input\Input.cpp" />
-    <ClCompile Include="Logic\GameEvents.cpp" />
     <ClCompile Include="Logic\Manager.cpp" />
     <ClCompile Include="Logic\Logic.cpp" />
     <ClCompile Include="Process\Process.cpp" />
@@ -99,7 +98,6 @@
     <ClInclude Include="Core\Message.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="Logic\Event.h" />
-    <ClInclude Include="Logic\GameEvents.h" />
     <ClInclude Include="Logic\Listener.h" />
     <ClInclude Include="Logic\Logic.h" />
     <ClInclude Include="Logic\Manager.h" />
