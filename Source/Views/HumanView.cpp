@@ -1,12 +1,9 @@
 
-#include "../Application.h"
 #include "../Core/Message.h"
 #include "../DXUT/DXUT.h"
-#include "../Logic/Logic.h"
-#include "../Logic/Manager.h"
+#include "../Input/Input.h"
 #include "HumanView.h"
-#include "QuadView.h"
-#include "TriangleView.h"
+#include "Scene.h"
 
 #include <boost/foreach.hpp>
 

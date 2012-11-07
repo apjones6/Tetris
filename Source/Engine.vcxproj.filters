@@ -24,9 +24,6 @@
     <ClCompile Include="Logic\Logic.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
-    <ClCompile Include="Views\QuadView.cpp">
-      <Filter>Views</Filter>
-    </ClCompile>
     <ClCompile Include="Logic\Manager.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
@@ -35,9 +32,6 @@
     </ClCompile>
     <ClCompile Include="Input\Input.cpp">
       <Filter>Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Views\TriangleView.cpp">
-      <Filter>Views</Filter>
     </ClCompile>
     <ClCompile Include="Process\Process.cpp">
       <Filter>Process</Filter>
@@ -57,9 +51,6 @@
     <ClInclude Include="Logic\Logic.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="Views\QuadView.h">
-      <Filter>Views</Filter>
-    </ClInclude>
     <ClInclude Include="Logic\Event.h">
       <Filter>Logic</Filter>
     </ClInclude>
@@ -77,9 +68,6 @@
     </ClInclude>
     <ClInclude Include="Input\Input.h">
       <Filter>Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Views\TriangleView.h">
-      <Filter>Views</Filter>
     </ClInclude>
     <ClInclude Include="Process\Process.h">
       <Filter>Process</Filter>

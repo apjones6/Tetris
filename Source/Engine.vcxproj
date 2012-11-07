@@ -88,9 +88,7 @@
     <ClCompile Include="Logic\Logic.cpp" />
     <ClCompile Include="Process\Process.cpp" />
     <ClCompile Include="Views\HumanView.cpp" />
-    <ClCompile Include="Views\QuadView.cpp" />
     <ClCompile Include="Views\Scene.cpp" />
-    <ClCompile Include="Views\TriangleView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -103,9 +101,7 @@
     <ClInclude Include="Logic\Manager.h" />
     <ClInclude Include="Process\Process.h" />
     <ClInclude Include="Views\HumanView.h" />
-    <ClInclude Include="Views\QuadView.h" />
     <ClInclude Include="Views\Scene.h" />
-    <ClInclude Include="Views\TriangleView.h" />
     <ClInclude Include="Views\View.h" />
   </ItemGroup>
   <ItemGroup>

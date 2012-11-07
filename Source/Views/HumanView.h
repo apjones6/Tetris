@@ -1,13 +1,16 @@
 
 #pragma once
 
-#include "../Input/Input.h"
-#include "../Logic/Listener.h"
-#include "Scene.h"
 #include "View.h"
 
 namespace dxut
 {
+	
+	class IKeyboardHandler;
+	class IMouseHandler;
+	class Scene;
+	
+//--------------------------------------------------------------------------------------
 	
 	class HumanView : public IHumanView
 	{
