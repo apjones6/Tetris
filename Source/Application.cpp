@@ -57,8 +57,6 @@ namespace dxut
 
 	LRESULT CALLBACK ApplicationBase::OnMsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, bool* pbNoFurtherProcessing, void* pUserContext)
 	{
-		LRESULT result = NULL;
-
 		switch (uMsg)
 		{
 			case WM_KEYDOWN:
@@ -77,8 +75,7 @@ namespace dxut
 					{
 						if (view->OnMsgProc(message))
 						{
-							result = true;
-							break;
+							return true;
 						}
 					}
 				}
@@ -86,7 +83,7 @@ namespace dxut
 				break;
 		}
 
-		return result;
+		return false;
 	}
 
 //--------------------------------------------------------------------------------------

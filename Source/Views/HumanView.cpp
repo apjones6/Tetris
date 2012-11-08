@@ -169,6 +169,15 @@ namespace dxut
 
 	LRESULT HumanView::OnMsgProc(const Message& message)
 	{
+		// Allow views to handle message
+		BOOST_REVERSE_FOREACH (std::shared_ptr<IViewElement> element, mElementList)
+		{
+			if (element->OnMsgProc(message))
+			{
+				return true;
+			}
+		}
+
 		// Handle keyboard messages
 		switch (message.msg)
 		{

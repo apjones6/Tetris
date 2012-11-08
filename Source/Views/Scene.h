@@ -21,6 +21,9 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
+	/**
+	 * A single node of a scene graph, such as a character, or the gun he's holding.
+	 */
 	class SceneNode
 	{
 	public:
@@ -47,6 +50,9 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
+	/**
+	 * The root of a scene graph, which all nodes are attached directly or indirectly off.
+	 */
 	class SceneRoot : public SceneNode
 	{
 	public:
@@ -60,6 +66,10 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
+	/**
+	 * The view element which contains the scene graph root, which in turn holds all objects
+	 * within the 2D or 3D scene.
+	 */
 	class Scene : public IViewElement
 	{
 	public:
@@ -68,8 +78,9 @@ namespace dxut
 		void Update(double time, float elapsedTime);
 		void Render(ID3D10Device* pd3dDevice);
 		void Kill();
-
-		void AddNode(std::shared_ptr<SceneNode> node);
+		
+		void	AddNode(std::shared_ptr<SceneNode> node);
+		LRESULT OnMsgProc(const Message& message);
 
 	private:
 		std::shared_ptr<SceneNode> mRoot;

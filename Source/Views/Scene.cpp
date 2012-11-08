@@ -121,5 +121,12 @@ namespace dxut
 
 		mRoot->AddNode(node);
 	}
+	
+//--------------------------------------------------------------------------------------
+
+	LRESULT Scene::OnMsgProc(const Message& message)
+	{
+		return false;
+	}
 
 };

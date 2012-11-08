@@ -15,6 +15,9 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
+	/**
+	 * The recognized types of view, such as Human, AI or Remote views.
+	 */
 	enum ViewType
 	{
 		VIEW_HUMAN,
@@ -23,34 +26,16 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	class IRenderView
-	{
-	public:
-		virtual void Render(ID3D10Device* pd3dDevice) = 0;
-	};
-
-//--------------------------------------------------------------------------------------
-
-	class IViewElement : public IRenderView
+	/**
+	 * An element of a view, which could be a user interface control, a 2D or 3D scene graph.
+	 */
+	class IViewElement
 	{
 	public:
 		virtual ~IViewElement() { }
 
 		virtual void Update(double time, float elapsedTime) = 0;
-		virtual void Kill() = 0;
-	};
-	
-//--------------------------------------------------------------------------------------
-
-	class IView
-	{
-	public:
-		virtual ~IView() { }
-
-		virtual ViewType Type() const = 0;
-
-		virtual void Initialize() = 0;
-		virtual void Update(double time, float elapsedTime) = 0;
+		virtual void Render(ID3D10Device* pd3dDevice) = 0;
 		virtual void Kill() = 0;
 
 		virtual LRESULT OnMsgProc(const Message& message) = 0;
@@ -58,7 +43,23 @@ namespace dxut
 	
 //--------------------------------------------------------------------------------------
 
-	class IHumanView : public IView, public IRenderView
+	/**
+	 * A root view, such as a Human, AI or Remote view, which parses input and acts on the logic.
+	 */
+	class IView : public IViewElement
+	{
+	public:
+		virtual ViewType Type() const = 0;
+
+		virtual void Initialize() = 0;
+	};
+	
+//--------------------------------------------------------------------------------------
+
+	/**
+	 * A local human view, which handles input such as keyboard and mouse, and outputs display and audio content.
+	 */
+	class IHumanView : public IView
 	{
 	public:
 		virtual void AddView(std::shared_ptr<IViewElement> view) = 0;
