@@ -5,8 +5,9 @@ This project is primarily educational, with the following objectives:
  - Increased knowledge with C++
  - Basic knowledge with DirectX and DXUT
  - Basic game programming techniques
- - Basic knowledge of using Git, and possibly also GitHub
+ - Basic knowledge of using Git and GitHub
  - Basic graphics programming techniques
+ - Familiarity with Doxygen documentation
  - A game to play
 
 Boost
@@ -16,7 +17,7 @@ the Boost folder at the root of the repository. The actual files have not been c
 excessive repository size, and massive commits when updating boost version.
 
 You can copy the entire Boost folder (containing headers) into here, or use something like the BCP
-tool to extract only the required files. As of 12/10/2012 the required boost packages are:
+tool to extract only the required files. As of 12/11/2012 the required boost packages are:
  - foreach.hpp
  - lambda/bind.hpp
  - lambda/lambda.hpp
