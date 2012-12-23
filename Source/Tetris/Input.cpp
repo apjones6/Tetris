@@ -20,6 +20,14 @@ namespace tetris
 	
 //--------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------
+
+	KeyboardHandler::KeyboardHandler()
+		: mMenu(new dxut::Panel(-0.6f, -0.6f, 0.6f, 0.6f, dxut::PURPLE)),
+		  mMenuVisible(false)
+	{
+	}
+
+//--------------------------------------------------------------------------------------
 	
 	void KeyboardHandler::OnKeyDown(BYTE key)
 	{
@@ -27,7 +35,23 @@ namespace tetris
 
 		dxut::KeyboardHandler::OnKeyDown(key);
 
-		if (key == 'P')
+		if (key == 'Q')
+		{
+			if (mMenuVisible)
+			{
+				gApp->Logic()->HumanView()->RemoveView(mMenu);
+			}
+			else
+			{
+				mMenu->Initialize();
+				gApp->Logic()->HumanView()->AddView(mMenu);
+			}
+			
+			mMenuVisible = !mMenuVisible;
+			gApp->Logic()->SetPaused(mMenuVisible);
+		}
+		
+		if (key == 'P' && !mMenuVisible)
 		{
 			TogglePause(gApp->Logic());
 		}

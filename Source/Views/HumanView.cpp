@@ -3,6 +3,7 @@
 #include "../DXUT/DXUT.h"
 #include "../Input/Input.h"
 #include "HumanView.h"
+#include "Interface.h"
 #include "Scene.h"
 
 #include <boost/foreach.hpp>
@@ -101,7 +102,12 @@ namespace dxut
 
 		// Create root scene
 		mScene = std::shared_ptr<Scene>(new Scene);
-		AddView(std::static_pointer_cast<IViewElement>(mScene));
+		AddView(mScene);
+
+		// Create interface
+		std::shared_ptr<Panel> ui(new Panel(0, 0, 1.0f, 1.0f, dxut::PURPLE));
+		ui->Initialize();
+		AddView(ui);
 	}
 	
 //--------------------------------------------------------------------------------------
@@ -135,6 +141,13 @@ namespace dxut
 		
 		// Set input layout
 		pd3dDevice->IASetInputLayout(mLayout);
+
+		// Set World View Projection matrix
+		// TODO: This should be exposed to all scene nodes (and interface classes?) and managed by them
+		D3DXMATRIX wvp;
+		ID3D10EffectMatrixVariable* fxWVP = mFX->GetVariableByName("gWVP")->AsMatrix();
+		D3DXMatrixIdentity(&wvp);
+		fxWVP->SetMatrix((float*)&wvp);
 
 		// Loop passes
 		for (UINT p = 0; p < techDesc.Passes; ++p)
@@ -226,6 +239,13 @@ namespace dxut
 	void HumanView::AddView(std::shared_ptr<IViewElement> view)
 	{
 		mElementList.push_back(view);
+	}
+	
+//--------------------------------------------------------------------------------------
+
+	void HumanView::RemoveView(std::shared_ptr<IViewElement> view)
+	{
+		mElementList.remove(view);
 	}
 
 };

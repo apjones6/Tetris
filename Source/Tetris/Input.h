@@ -2,6 +2,7 @@
 #pragma once
 
 #include "../Input/Input.h"
+#include "../Views/Interface.h"
 
 namespace tetris
 {
@@ -17,7 +18,13 @@ namespace tetris
 	class KeyboardHandler : public dxut::KeyboardHandler
 	{
 	public:
+		explicit KeyboardHandler();
+
 		void OnKeyDown(BYTE key);
+
+	private:
+		std::shared_ptr<dxut::Panel> mMenu;
+		bool mMenuVisible;
 	};
 
 };

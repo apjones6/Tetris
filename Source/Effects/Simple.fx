@@ -5,7 +5,7 @@
 // ----------------------------------------------------------------------------
 struct VS_IN
 {
-	float4 pos : POSITION;
+	float3 pos : POSITION;
 	float4 col : COLOR;
 };
 
@@ -18,6 +18,10 @@ struct PS_IN
 // ----------------------------------------------------------------------------
 // CONSTANT BUFFERS
 // ----------------------------------------------------------------------------
+cbuffer cbPerObject
+{
+	float4x4 gWVP;
+};
 
 // ----------------------------------------------------------------------------
 // VERTEX SHADERS
@@ -26,7 +30,7 @@ PS_IN VS(VS_IN vIn)
 {
 	PS_IN vOut;
 
-	vOut.pos = vIn.pos;
+	vOut.pos = mul(float4(vIn.pos, 1.0f), gWVP);
 	vOut.col = vIn.col;
 
 	return vOut;

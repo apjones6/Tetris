@@ -1,8 +1,7 @@
 
 #pragma once
 
-#include "../Views/View.h"
-
+#include <list>
 #include <map>
 
 namespace dxut
@@ -10,6 +9,12 @@ namespace dxut
 	
 	typedef unsigned int ActorId;
 	typedef unsigned int ActorType;
+
+//--------------------------------------------------------------------------------------
+	
+	class IHumanView;
+	class IView;
+	class ProcessManager;
 
 //--------------------------------------------------------------------------------------
 	
@@ -35,10 +40,7 @@ namespace dxut
 //--------------------------------------------------------------------------------------
 	
 	typedef std::map<ActorId, std::shared_ptr<Actor>> ActorMap;
-
-//--------------------------------------------------------------------------------------
-	
-	class ProcessManager;
+	typedef std::list<std::shared_ptr<IView>> ViewList;
 
 //--------------------------------------------------------------------------------------
 

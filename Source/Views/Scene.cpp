@@ -81,7 +81,8 @@ namespace dxut
 //--------------------------------------------------------------------------------------
 
 	Scene::Scene()
-		: mRoot(new SceneRoot)
+		: mRoot(new SceneRoot),
+		  mVisible(true)
 	{
 	}
 	

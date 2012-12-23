@@ -26,8 +26,12 @@ namespace dxut
 		void Kill();
 
 		LRESULT OnMsgProc(const Message& message);
+		
+		bool Visible() const { return true; }
+		void Visible(bool visible) { }
 
 		void AddView(std::shared_ptr<IViewElement> view);
+		void RemoveView(std::shared_ptr<IViewElement> view);
 
 		std::shared_ptr<Scene> RootScene() { return mScene; }
 		

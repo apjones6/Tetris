@@ -39,6 +39,9 @@ namespace dxut
 		virtual void Kill() = 0;
 
 		virtual LRESULT OnMsgProc(const Message& message) = 0;
+
+		virtual bool Visible() const = 0;
+		virtual void Visible(bool visible) = 0;
 	};
 	
 //--------------------------------------------------------------------------------------
@@ -63,6 +66,7 @@ namespace dxut
 	{
 	public:
 		virtual void AddView(std::shared_ptr<IViewElement> view) = 0;
+		virtual void RemoveView(std::shared_ptr<IViewElement> view) = 0;
 
 		virtual std::shared_ptr<Scene> RootScene() = 0;
 	};
@@ -70,7 +74,6 @@ namespace dxut
 //--------------------------------------------------------------------------------------
 
 	typedef std::list<std::shared_ptr<IViewElement>> ViewElementList;
-	typedef std::list<std::shared_ptr<IView>> ViewList;
 	
 //--------------------------------------------------------------------------------------
 

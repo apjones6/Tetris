@@ -81,9 +81,13 @@ namespace dxut
 		
 		void	AddNode(std::shared_ptr<SceneNode> node);
 		LRESULT OnMsgProc(const Message& message);
+		
+		bool Visible() const { return mVisible; }
+		void Visible(bool visible) { mVisible = visible; }
 
 	private:
 		std::shared_ptr<SceneNode> mRoot;
+		bool mVisible;
 		SceneMap mNodeMap;
 	};
 

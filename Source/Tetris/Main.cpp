@@ -9,7 +9,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	gApp = std::shared_ptr<ApplicationBase>(new tetris::Application);
 
 	// Run
-	gApp->Initialize(L"DXUT Test Application");
+	gApp->Initialize(L"Apjones Tetris");
 	int exit = gApp->Run();
 
 	// Kill
